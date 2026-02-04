@@ -1,0 +1,29 @@
+{
+  "name": "key-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LLM API Key unified management platform",
+  "workspaces": [
+    "packages/*",
+    "shared/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev -w @key-hub/server",
+    "dev:client": "npm run dev -w @key-hub/client",
+    "build": "npm run build -w @key-hub/shared && npm run build -w @key-hub/server && npm run build -w @key-hub/client",
+    "build:server": "npm run build -w @key-hub/server",
+    "build:client": "npm run build -w @key-hub/client",
+    "start": "npm run start -w @key-hub/server",
+    "lint": "eslint . --ext .ts,.tsx",
+    "clean": "rm -rf packages/*/dist packages/*/node_modules shared/*/dist shared/*/node_modules node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

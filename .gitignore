@@ -137,3 +137,7 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Key Hub data
+packages/server/data/*.json
+!packages/server/data/.gitkeep
